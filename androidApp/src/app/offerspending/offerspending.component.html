@@ -1,0 +1,88 @@
+
+<!-- <div class="container">
+<h1>Fetching all offerspending details</h1>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Total Experience</th>
+        <th>Skill</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let offerp of offerspendingList">
+            <td>{{offerp.name}}</td>
+            <td>{{offerp.totalExp}}</td>
+            <td>{{offerp.skill}}</td>
+        </tr>
+    </tbody>
+
+</table>
+</div> -->
+
+<!-- <h1>**************************************************</h1> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #33b4db;
+            color: white;
+        }
+    </style>--> 
+
+<link rel="stylesheet" href="offerspending.component.css">
+</head>
+
+<body>
+
+    <h2 >Offers Pending for Approvals</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>TotalExp.</th>
+            <th>Skill</th>
+        </tr>
+        <tr *ngFor="let offerp of offerspendingList">
+            <td>{{offerp.name}}</td>
+            <td>&nbsp; &nbsp; &nbsp; &nbsp; {{offerp.totalExp}}</td>
+            <td >{{offerp.skill}} </td>
+        </tr>
+
+    </table>
+
+     <div>
+        <ul class="pagination">
+            <li><a href="#" class="fa fa-angle-double-left"></a></li>
+            <li><a href="#">1</a></li>
+            <li><a class="active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#" class="fa fa-angle-double-right"></a></li>
+          </ul>
+        
+     </div>
+
+</body>
+
+</html>
