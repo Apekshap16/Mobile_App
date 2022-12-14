@@ -1,30 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {users} from '../offerspendinglist'
 import { Offerspending } from './model/offerspending.model';
-
-
-//*************** */
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
-//******************* */
+import { PaginationService } from '../services/pagination.service';
+import { OfferspendingService } from '../services/offerspending.service';
+import { Offers } from './model/offerspending';
 
 
 
@@ -35,16 +14,58 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class OfferspendingComponent implements OnInit{
 
-  constructor(){}
+  constructor(private offerspendingservice:OfferspendingService){
+    this.offerspendingservice.getOffersPendingList().subscribe((data)=>{
+      this.offers=data;
+    })
+  }
 
   ngOnInit(): void {
-    
+//    this.getOffersPendings();
   }
   offerspendingList: Offerspending[] = users;
 
 
-  //********** */
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  //************ */
+
+  res: Offers = new Offers;
+  offers:any;
+
+
+  //------Pagination --------
+   title = 'pagination';
+   page: number = 1;
+   count: number = 0;
+   tableSize : number = 10;
+   tableSizes: any = [5,10,15,20];
+
+  onTableDataChange(event: any){
+    this.page = event;
+    //this.offerspendingList;
+    this.offers;
+  }
+ 
+  onTableSizeChange(event: any){
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.offerspendingList;
+  }
+
+  /*
+  getReservations() {
+    this.reservationService.getReservationList().subscribe(data => {
+      console.log(Object.values(data.resList));
+      this.reservation = data.resList;
+
+    });*/
+
+  //   getOffersPendings() {
+  //     this.offerspendingservice.getOffersPendingList().subscribe(data => {
+  //       console.log(Object.values(data.resList));
+  //       this.offers = data.resList;
+         
+  //     });
+  // }
+
+
+
 }

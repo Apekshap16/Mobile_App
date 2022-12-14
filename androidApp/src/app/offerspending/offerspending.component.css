@@ -23,33 +23,19 @@ th {
     color: white;
 }
 
-
-
-
-
-
-
-
-
-
-ul.pagination {
+/* .center {
+    
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  } */
+.pagination {
+    margin: auto;
+    padding:0%;
     display: inline-block;
-    padding-top: 50px;
-    padding-left: 450px;
+    /* padding-top: 50px;
+    padding-left: 450px; */
     margin: 0;
 
 }
-ul.pagination li {display: inline;}
-ul.pagination li a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-ul.pagination li a.active {
-    background-color:  #33b4db;
-    color: white;
-    border-radius: 5px;
-}
-ul.pagination li a:hover:not(.active) {background-color: rgb(196, 241, 244);}
